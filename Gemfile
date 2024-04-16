@@ -19,6 +19,9 @@ gem "date_validator"
 gem "valid_email2"
 gem "nokogiri"
 
+# 「warning: already initialized constant Net::ProtocRetryError」への対処。
+gem 'net-http'
+
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
 end
