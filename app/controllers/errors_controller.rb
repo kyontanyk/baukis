@@ -1,5 +1,5 @@
 class ErrorsController < ApplicationController
-  layout "staff"
+  layout "shared_only"
 
   def not_found
     render status: 404
