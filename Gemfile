@@ -38,6 +38,6 @@ group :test do
   gem "capybara", ">= 2.15"
   gem "selenium-webdriver"
   gem "webdrivers"
-  gem "rspec-rails"
-  gem "factory_bot_rails"
+  gem "rspec-rails", "~> 3.9.0"
+  gem "factory_bot_rails", "~> 5.1.0"
 end
