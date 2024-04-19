@@ -17,11 +17,10 @@ describe Staff::Authenticator do
       expect(Staff::Authenticator.new(m).authenticate(nil)).to be_falsey
     end
 
-    # 下記テストは実情に合致していないので削除。
-    # example "停止フラグが立っていてもtrueを返す" do
-    #   m = build(:staff_member, suspended: true)
-    #   expect(Staff::Authenticator.new(m).authenticate("pw")).to be_truthy
-    # end
+    example "停止フラグが立っていてもtrueを返す" do
+      m = build(:staff_member, suspended: true)
+      expect(Staff::Authenticator.new(m).authenticate("pw")).to be_truthy
+    end
 
     example "開始前ならfalseを返す" do
       m = build(:staff_member, start_date: Date.tomorrow)
