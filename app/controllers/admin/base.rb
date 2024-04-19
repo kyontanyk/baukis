@@ -1,12 +1,12 @@
 class Admin::Base < ApplicationController
   private
 
-  def current_admin_member
-    if session[:admin_member_id]
-      @admin_member_id \
-        ||= AdminMember.find_by(id: session[:admin_member_id])
+  def current_administrator
+    if session[:administrator_id]
+      @administrator_id \
+        ||= Administrator.find_by(id: session[:administrator_id])
     end
   end
 
-  helper_method :current_admin_member
+  helper_method :current_administrator
 end
