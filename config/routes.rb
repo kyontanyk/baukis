@@ -1,30 +1,22 @@
 Rails.application.routes.draw do
-  namespace :staff do
-    root 'top#index'
-    get 'login' => 'sessions#new'
-    resource :session, only: %i(create destroy)
-    # post 'session' => 'sessions#create'
-    # delete 'session' => 'sessions#destroy'
-    resource :account, except: %i(new create destroy)
-    # get 'account' => 'accounts#show'
-    # get 'account/edit' => 'accounts#edit'
-    # patch 'account' => 'accounts#update'
+  config = Rails.application.config.baukis
+
+  constraints host: config[:staff][:host] do
+    namespace :staff, path: config[:staff][:path] do
+      root 'top#index'
+      get 'login' => 'sessions#new'
+      resource :session, only: %i(create destroy)
+      resource :account, except: %i(new create destroy)
+    end
   end
 
-  namespace :admin do
-    root 'top#index'
-    get 'login' => 'sessions#new'
-    resource :session, only: %i(create destroy)
-    # post 'session' => 'sessions#create'
-    # delete 'session' => 'sessions#destroy'
-    resources :staff_members
-    # get 'staff_members' => 'staff_members#index'
-    # get 'staff_members/:id' => 'staff_members#show'
-    # get 'staff_members/new' => 'staff_members#new'
-    # get 'staff_members/:id/edit' => 'staff_members#edit'
-    # post 'staff_members' => 'staff_members#create'
-    # patch 'staff_members/:id' => 'staff_members#update'
-    # delete 'staff_members/:id' => 'staff_members#destroy'
+  constraints host: config[:admin][:host] do
+    namespace :admin , path: config[:admin][:path] do
+      root 'top#index'
+      get 'login' => 'sessions#new'
+      resource :session, only: %i(create destroy)
+      resources :staff_members
+    end
   end
 
   namespace :customer do
