@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   include ErrorHandlers if Rails.env.production?
+  # include ErrorHandlers
 
   private
 
