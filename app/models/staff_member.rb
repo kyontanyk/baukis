@@ -6,4 +6,9 @@ class StaffMember < ApplicationRecord
       self.hashed_password = nil
     end
   end
+
+  def active?
+    !suspended? && start_date <= Date.today &&
+        (end_date.nil? || Date.today < end_date)
+  end
 end
