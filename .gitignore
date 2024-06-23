@@ -48,3 +48,5 @@ yarn-debug.log*
 
 # Ignore bundler gems.
 /vendor/bundle
+
+spec_result.txt
