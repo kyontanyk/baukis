@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  config = Rails.application.config.baukis
+  config = Rails.application.config.baukis # Defined in config/initializers/baukis.rb
 
   constraints host: config[:staff][:host] do
     namespace :staff, path: config[:staff][:path] do

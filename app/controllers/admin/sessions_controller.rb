@@ -1,4 +1,7 @@
 class Admin::SessionsController < Admin::Base
+
+  skip_before_action :authorize
+
   def new
     if current_administrator
       redirect_to :admin_root
@@ -15,7 +18,7 @@ class Admin::SessionsController < Admin::Base
         @form.email.downcase)
     end
     if !administrator.nil? \
-      && Admin::Authenticator.new(administrator).authenticate(@form.password)
+        && Admin::Authenticator.new(administrator).authenticate(@form.password)
       if administrator.suspended?
         flash.now.alert = 'アカウントが停止されています。'
         render action: 'new'
