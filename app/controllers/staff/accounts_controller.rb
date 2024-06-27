@@ -3,6 +3,10 @@ class Staff::AccountsController < Staff::Base
     @staff_member = current_staff_member
   end
 
+  def edit
+    @staff_member = current_staff_member
+  end
+
   def update
     @staff_member = current_staff_member
     @staff_member.assign_attributes(staff_member_params)
