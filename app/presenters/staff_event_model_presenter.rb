@@ -1,4 +1,4 @@
-class StaffEventPresenter < ModelPresenter
+class StaffEventModelPresenter < ModelPresenter
   delegate :member, :description, :created_at, to: :object
 
   def table_row

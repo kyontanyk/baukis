@@ -44,9 +44,11 @@ class FormPresenter
 
   def error_messages_for(name)
     markup do |m|
-      object.errors.full_messages_for(name).each do |message|
-        m.div(class: "error-message") do
-          m.text message
+      if form_builder.respond_to?('errors')
+        form_builder.errors.full_messages_for(name).each do |message|
+          m.div(class: "error-message") do
+            m.text message
+          end
         end
       end
     end

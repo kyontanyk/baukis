@@ -1,4 +1,4 @@
-<%= p = StaffMemberFormPresenter.new(form, self) %>
+<% p = StaffMemberFormPresenter.new(form, self) %>
 <%= markup do |m|
   m << p.notes
   p.with_options(required: true) do |q|

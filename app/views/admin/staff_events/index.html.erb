@@ -25,7 +25,7 @@
     <%#= render partial: "event", collection: @events %>
 
     <% @events.each do |event| %>
-      <%= StaffEventPresenter.new(event, self).table_row %>
+      <%= StaffEventModelPresenter.new(event, self).table_row %>
     <% end %>
 
     <% if @events.empty? %>

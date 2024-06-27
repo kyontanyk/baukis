@@ -1,4 +1,4 @@
-class StaffMemberPresenter < ModelPresenter
+class StaffMemberModelPresenter < ModelPresenter
   delegate :suspended?, to: :object
 
   def suspended_mark
@@ -6,10 +6,10 @@ class StaffMemberPresenter < ModelPresenter
   end
 
   def full_name
-    object.full_name + ' ' + object.given_name
+    object.family_name + ' ' + object.given_name
   end
 
   def full_name_kana
-    object.full_name_kana + ' ' + object.given_name_kana
+    object.family_name_kana + ' ' + object.given_name_kana
   end
 end

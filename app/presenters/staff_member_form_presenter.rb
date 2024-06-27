@@ -2,7 +2,8 @@ class StaffMemberFormPresenter < FormPresenter
   def password_field_block(name, label_text, options = {})
     # 新規ユーザー登録時のみパスワード入力欄を表示し、
     # 既存ユーザー編集画面ではパスワード入力欄を表示しない。
-    if object.new_record?
+    if form_builder.respond_to?('new_record?') &&
+        form_builder.new_record?
       super(name, label_text, options)
     end
   end
