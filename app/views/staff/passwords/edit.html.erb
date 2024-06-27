@@ -4,8 +4,8 @@
 <div id="generic-form">
   <%= form_with model: @change_password_form, url: :staff_password,
                 method: :patch do |f| %>
+    <%= p = FormPresenter.new(f, self) %>
     <%= markup do |m|
-      p = FormPresenter.new(f, self)
       p.with_options(required: true, size: 32) do |q|
         m << q.password_field_block(:current_password, '現在のパスワード')
         m << q.password_field_block(:new_password, '新しいパスワード')
