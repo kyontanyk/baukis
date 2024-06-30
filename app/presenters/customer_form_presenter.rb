@@ -6,6 +6,7 @@ class CustomerFormPresenter < UserFormPresenter
       m << label(:gender_male, '男性')
       m << radio_button(:gender, 'female')
       m << label(:gender_female, '女性')
+      m << error_messages_for(:gender)
     end
   end
 end
