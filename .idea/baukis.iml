@@ -619,8 +619,11 @@
           <RakeTaskImpl id="spec">
             <subtasks>
               <RakeTaskImpl description="" fullCommand="spec:experiments" id="experiments" />
+              <RakeTaskImpl description="" fullCommand="spec:features" id="features" />
               <RakeTaskImpl description="" fullCommand="spec:models" id="models" />
               <RakeTaskImpl description="" fullCommand="spec:prepare" id="prepare" />
+              <RakeTaskImpl description="" fullCommand="spec:requests" id="requests" />
+              <RakeTaskImpl description="" fullCommand="spec:routing" id="routing" />
               <RakeTaskImpl description="" fullCommand="spec:services" id="services" />
               <RakeTaskImpl description="" fullCommand="spec:statsetup" id="statsetup" />
             </subtasks>
