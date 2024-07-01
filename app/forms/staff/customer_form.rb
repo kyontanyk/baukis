@@ -2,7 +2,7 @@ class Staff::CustomerForm
   include ActiveModel::Model
 
   attr_accessor :customer, :inputs_home_address, :inputs_work_address
-  delegate :persisted?, to: :customer
+  delegate :persisted?, :save, to: :customer
 
   def initialize(customer = nil)
     @customer = customer
@@ -30,19 +30,8 @@ class Staff::CustomerForm
     end
   end
 
-  def valid?
-    [ customer, customer.home_address, customer.work_address ]
-        .select{|item| item != nil}.map(&:valid?).all?
-  end
-
   def save
-    if valid?
-      ActiveRecord::Base.transaction do
-        customer.save!
-        customer.home_address&.save!
-        customer.work_address&.save!
-      end
-    end
+    customer.save
   end
 
   private def customer_params
