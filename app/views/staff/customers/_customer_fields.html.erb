@@ -9,6 +9,7 @@
     end
     m << p.date_field_block(:birthday, "生年月日")
     m << p.gender_field_block
+
     m.div(class: 'input-block') do
       m << p.decorated_label(:personal_phones, '電話番号')
       m.ol do
@@ -17,5 +18,6 @@
         end
       end
     end
+
   end %>
 <% end %>
