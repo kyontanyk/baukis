@@ -1,6 +1,6 @@
 class Staff::CustomerSearchForm
   include ActiveModel::Model
-  # include StringNormalizer
+  include StringNormalizer
 
   attr_accessor :family_name_kana, :given_name_kana,
                 :birth_year, :birth_month, :birth_mday,
@@ -8,7 +8,7 @@ class Staff::CustomerSearchForm
                 # :gender, :postal_code, :last_four_digits_of_phone_number
 
   def search
-    # normalize_values
+    normalize_values
 
     rel = Customer
 
@@ -74,14 +74,14 @@ class Staff::CustomerSearchForm
     rel.order(:family_name_kana, :given_name_kana)
   end
 
-  # private def normalize_values
-  #   self.family_name_kana = normalize_as_furigana(family_name_kana)
-  #   self.given_name_kana = normalize_as_furigana(given_name_kana)
-  #   self.city = normalize_as_name(city)
-  #   self.phone_number = normalize_as_phone_number(phone_number)
-  #                         .try(:gsub, /\D/, "")
-  #   self.postal_code = normalize_as_postal_code(postal_code)
-  #   self.last_four_digits_of_phone_number =
-  #     normalize_as_phone_number(last_four_digits_of_phone_number)
-  # end
+  private def normalize_values
+    self.family_name_kana = normalize_as_furigana(family_name_kana)
+    self.given_name_kana = normalize_as_furigana(given_name_kana)
+    self.city = normalize_as_name(city)
+    self.phone_number = normalize_as_phone_number(phone_number)
+                          .try(:gsub, /\D/, "")
+    # self.postal_code = normalize_as_postal_code(postal_code)
+    # self.last_four_digits_of_phone_number =
+    #   normalize_as_phone_number(last_four_digits_of_phone_number)
+  end
 end
